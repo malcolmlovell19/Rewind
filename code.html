@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project by Malcolm Lovell</title>
+    <title>Rewind: A Coding Project by Malcolm Lovell</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,7 +23,7 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img src="img/FaceLogo.png" width="30" height="24" alt="Logo" class="d-inline-block align-text-top">APP NAME
+            <img src="img/FaceLogo.png" width="30" height="24" alt="Logo" class="d-inline-block align-text-top">REWIND
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,9 +59,34 @@
                    <div class="col-lg-8">
                     <pre class="line-numbers">
                         <code class="language-javascript">
-                            //Call Hello World
-                            function helloWorld() {
-                            alert("Hello World!");
+                            //Get string from page
+                            function getValue(){
+                                //Make sure alert is invisible before button is pressed
+                                document.getElementById("alert").classList.add("invisible");
+                            
+                                let userString = document.getElementById("userString").value;
+                            
+                                let revString = reverseString(userString);
+                            
+                                displayString(revString);
+                            }
+                            
+                            //Reverse the string
+                            function reverseString(userString){
+                                let revString = [];
+                            
+                                //reverse a string using a for loop
+                                for (let i = userString.length - 1; i >= 0; i--) {
+                                  revString += userString[i];         
+                                }
+                                
+                                return revString;
+                            }
+                            
+                            //Display the reversed string to the user
+                            function displayString(revString){
+                                document.getElementById("msg").innerHTML = `Your reversed string is: ${revString}`;
+                                document.getElementById("alert").classList.remove("invisible");        
                             }
                         </code>
                     </pre>
@@ -69,8 +94,18 @@
                    </div>
                    <div class="col-lg-4">
                         <p>The code is structured in open function.</p>
-                        <h5>Hello World</h5>
-                        <p>Hello World is a function that displays an alert with a message of "Hello World"</p>
+                        <h5>getValue()</h5>
+                        <p>The getValue function ensures the alert box is hidden and records the user
+                             inputted string and then calls the reverseString and displayString functions.
+                        </p>
+                        <h5>reverseString()</h5>
+                        <p>The reverseString function takes the user inputted string and inputs each 
+                            character from last to first into an array. The reversed string is stored. 
+                        </p>
+                        <h5>displayString()</h5>
+                        <p>The displayString function shows the alert box and displays the reversed
+                            string to the user.
+                        </p>
                    </div>
                </div>
        </div>
